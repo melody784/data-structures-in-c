@@ -1,4 +1,5 @@
 #include "sqlist.h"
+#include "linklist.h" 
 
 /* 测试数据宏定义 */
 #define SAMPLE_INIT   {10,20,30,40,50,60,70,80,90}   /* 初始样例数据 */
