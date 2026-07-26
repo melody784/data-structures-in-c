@@ -21,4 +21,7 @@ linklist_status createlist_tail(linklist *L, int n);//尾插法创建链表
 linklist_status insert_list(linklist *L,int position,int value);//在链表中插入元素
 linklist_status delete_list(linklist *L,int position);//删除链表中的元素
 linklist_status get_elem(linklist *L,int position,int *value);//获取链表中指定位置的元素
+linklist_status update_elem(linklist *L,int position,int value);//更新链表中指定位置的元素
+linklist_status find_elem(linklist *L,int value,int *position);//查找链表中指定元素的位置
+void print_list(linklist *L);//打印链表
 #endif
