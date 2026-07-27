@@ -3,7 +3,7 @@
 linklist_status InitList(linklist *L) {//初始化链表
     *L = (linklist)malloc(sizeof(LNode));
     if (!(*L)) {
-        exit(0);
+        return LINKLIST_ERR_ALLOC;
     }
 
     (*L)->next = NULL;

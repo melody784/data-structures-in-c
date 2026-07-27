@@ -3,11 +3,15 @@
 #define LINKLIST_H
 #include <stdio.h>
 #include <stdlib.h>
-typedef struct {
+typedef struct linklist{//链表结构体
          int data;
          struct Node* next;
-         int length;
-} LNode,*linklist;
+            int length;
+} *linklist;
+typedef struct Node{//链表节点结构体
+         int data;
+         struct Node* next;
+} LNode;
 typedef enum {
     LINKLIST_OK=0,//操作成功
     LINKLIST_ERR_NULL,//链表为空
