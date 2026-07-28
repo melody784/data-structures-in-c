@@ -19,4 +19,12 @@ typedef enum {
     D_LINKLIST_ERR_RANGE,//位置不合法
     D_LINKLIST_ERR_NOT_FOUND//未找到元素
 } dlinklist_status; 
+dlinklist_status dlinklist_init(dlinklist* L);//初始化带头尾节点的双向链表
+dlinklist_status dlinklist_insert(dlinklist L,int position,int data);//在双向链表中插入元素
+dlinklist_status dlinklist_delete(dlinklist L,int position);//删除双向链表中的元素
+dlinklist_status dlinklist_get(dlinklist L,int position,int* data);//获取双向链表中指定位置的元素
+dlinklist_status dlinklist_update(dlinklist L,int position,int data);//更新双向链表中指定位置的元素
+dlinklist_status dlinklist_destroy(dlinklist* L);//销毁双向链表
+void dlinklist_print(dlinklist L);//打印双向链表中的元素
+dlinklist_status dlinklist_find(dlinklist L,int data,int* position);//查找双向链表中指定元素的位置
 #endif

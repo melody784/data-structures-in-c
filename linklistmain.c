@@ -45,4 +45,8 @@ int main() {
     } else {
         printf("获取失败，错误码: %d\n", result);
     }
+    //销毁链表
+    destroy_list(&L);
+    return 0;
 }
+

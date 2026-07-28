@@ -12,7 +12,7 @@ linklist_status InitList(linklist *L) {//初始化链表
 }
 
 linklist_status createlist_head(linklist *L, int n) {//头插法创建链表
-    linklist p;
+    LNode *p;
     int i;
 
     for (i = 0; i < n; i++) {
@@ -31,7 +31,7 @@ linklist_status createlist_head(linklist *L, int n) {//头插法创建链表
 }
 
 linklist_status createlist_tail(linklist *L, int n) {//尾插法创建链表
-    linklist p, r;
+    LNode *p, *r;
     int i;
 
     r = *L;
@@ -57,7 +57,7 @@ linklist_status insert_list(linklist *L, int position, int value) {//在链表�
     }
 
     int i;
-    linklist p, s;
+    LNode *p, *s;
 
     p = *L;
     for (i = 1; i < position; i++) {
@@ -82,7 +82,7 @@ linklist_status delete_list(linklist *L, int position) {//删除链表中指定�
     }
 
     int i;
-    linklist p, q;
+    LNode *p, *q;
 
     p = *L;
     for (i = 1; i < position; i++) {
@@ -102,7 +102,7 @@ linklist_status get_elem(linklist *L, int position, int *value) {//获取链表�
     }
 
     int i;
-    linklist p;
+    LNode *p;
 
     p = *L;
     for (i = 1; i <= position; i++) {
@@ -112,13 +112,13 @@ linklist_status get_elem(linklist *L, int position, int *value) {//获取链表�
     *value = p->data;
     return LINKLIST_OK;
 }
-linklist_status update_elem(linklist *L, int position, int value) {//更行链表中指定位置的元素
+linklist_status update_elem(linklist *L, int position, int value) {//获取链表中指定位置的元素
     if (position < 1 || position > (*L)->length) {
         return LINKLIST_ERR_RANGE;
     }
 
     int i;
-    linklist p;
+    LNode *p;
 
     p = *L;
     for (i = 1; i <= position; i++) {
@@ -130,7 +130,7 @@ linklist_status update_elem(linklist *L, int position, int value) {//更行链�
 }
 linklist_status find_elem(linklist *L, int value, int *position) {//查找链表中指定元素的位置
     int i;
-    linklist p;
+    LNode *p;
     p = *L;
     for (i = 1; i <= (*L)->length; i++) {
         p = p->next;
@@ -139,13 +139,26 @@ linklist_status find_elem(linklist *L, int value, int *position) {//查找链表
             return LINKLIST_OK;
         }
     }
+    return LINKLIST_ERR_NOT_FOUND;
 }
 void print_list(linklist *L) {//打印链表
-    linklist p;
+    LNode *p;
     p = (*L)->next;
     while (p) {
         printf("%d ", p->data);
         p = p->next;
     }
     printf("\n");
+}
+linklist_status destroy_list(linklist *L) {//销毁链表
+    LNode *p, *q;
+    p = (*L)->next;
+    while (p) {
+        q = p->next;
+        free(p);
+        p = q;
+    }
+    free(*L);
+    *L = NULL;
+    return LINKLIST_OK;
 }

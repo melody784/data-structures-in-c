@@ -28,4 +28,5 @@ linklist_status get_elem(linklist *L,int position,int *value);//获取链表中�
 linklist_status update_elem(linklist *L,int position,int value);//更新链表中指定位置的元素
 linklist_status find_elem(linklist *L,int value,int *position);//查找链表中指定元素的位置
 void print_list(linklist *L);//打印链表
+linklist_status destroy_list(linklist *L);//销毁链表
 #endif
